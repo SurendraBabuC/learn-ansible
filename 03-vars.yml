@@ -20,6 +20,6 @@
       ansible.builtin.debug:
         msg: URL- {{ URL }}
       vars:
-        URL: play.example.com
+        URL: task.example.com
 
 # vars_files does not support task level, it is for play level only
