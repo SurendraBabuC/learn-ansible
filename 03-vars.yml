@@ -5,22 +5,22 @@
   tasks:
     - name: Print URL
       ansible.builtin.debug:
-        msg: URL- {{ URL }}
+        msg: URL - {{ URL }}
 
 # In Ansible variable will be accessed using {{ }} ,
-# Ansible Supports double quotes and single quotes also , However quotes are not mandatory in all cases
+# Ansible Supports double quotes and single quotes also , However quotes are not not mandatory in all cases
 # quotes are mandatory if value starts with a variable , meaning
 # msg: {{ URL }} <- This requires quoting
 # msg: URL - {{ URL }} <- This does not require quoting
 
 - name: Load vars from a file
   hosts: all
-  vars_file:
+  vars_files:
     - exvars.yml
   tasks:
     - name: Print URL
       ansible.builtin.debug:
-        msg: URL- {{ URL }}
+        msg: URL - {{ URL }}
 
 # vars_files does not support task level, it is for play level only
 
@@ -29,9 +29,9 @@
   tasks:
     - name: Print URL
       ansible.builtin.debug:
-        msg: URL- {{ URL }}
+        msg: URL - {{ URL }}
       vars:
-        URL: task.example.com
+        URL: tasks.example.com
 
 # Only that task have that variable, other tasks cannot access it.
 
@@ -51,4 +51,3 @@
     - name: Print output
       ansible.builtin.debug:
         msg: '{{ output.stdout }}'
-
